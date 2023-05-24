@@ -2,7 +2,7 @@
 
 🎧 Application for service with music. 
 
-💻 Live demo: 
+💻 Live demo: https://musicservice--viktoryiavysots.repl.co
 
 (!) Free hosting so might take a while to load for first time.
 
