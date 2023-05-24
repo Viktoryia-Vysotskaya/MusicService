@@ -1,0 +1,120 @@
+// Global //
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#pages > * {
+  display: none;
+}
+
+#pages > .active {
+  display: block;
+}
+
+body {
+  margin: auto;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  background-color: $color-background;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 50px 0;
+  align-items: center;
+}
+
+.button {
+  color: $color-main;
+  font-weight: $weight-bold;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 5px;
+  border-radius: 5px;
+}
+
+.button-subscribe {
+  font-size: 32px;
+  width: 240px;
+  height: 96px;
+  background-color: $color-button;
+}
+
+.button-search {
+  font-size: 16px;
+  font-weight: $weight-semibold;
+  letter-spacing: 4px;
+  height: 46px;
+  width: 102px;
+  background-color: $color-button;
+  text-transform: uppercase;
+}
+
+button, input {
+  line-height: 0;
+}
+
+// Audio-player //
+
+.song-title {
+  a {
+    color: $color-main;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  p {
+    display: inline;
+  }
+
+}
+
+.audio-additionals {
+  display: flex;
+  justify-content: space-between;
+  min-width: 300px;
+  width: 400px;
+}
+
+.audio-additionals-categories {
+  color: $color-secondary;
+  font-weight: $weight-regular;
+  text-decoration: none;
+
+  a {
+    color: $color-secondary;
+    font-weight: $weight-regular;
+    font-size: 16px;
+    text-decoration: none;
+  }
+}
+
+.audio-additionals-ranking {
+  color: $color-secondary;
+  font-weight: $weight-regular;
+  text-decoration: none;
+
+  a {
+    color: $color-secondary;
+    font-weight: $weight-regular;
+    font-size: 16px;
+    text-decoration: none;
+  }
+}
+
+.green-audio-player .slider .gap-progress .pin {
+  background-color: $color-button;
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .song-title {
+    font-size: 16px;
+    letter-spacing: normal;
+  }
+}

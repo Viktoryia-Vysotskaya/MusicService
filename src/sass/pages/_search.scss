@@ -1,0 +1,25 @@
+.page-title {
+  text-align: center;
+}
+
+.searchbar-title {
+  color: $color-secondary;
+  font-weight: $weight-semibold;
+  font-size: 24px;
+  letter-spacing: 6px;
+}
+
+.searchbar-input {
+  margin-right: 15px;
+  height: 46px;
+  border-radius: 5px;
+  border: none;
+}
+
+.page-prompt {
+  margin-top: 100px;
+  color: $color-main;
+  font-weight: $weight-semibold;
+  font-size: 24px;
+  letter-spacing: 6px;
+}

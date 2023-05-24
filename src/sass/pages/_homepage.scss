@@ -1,0 +1,158 @@
+.subscribe-sign {
+  margin: -8px;
+}
+
+.subscribe-box {
+  display: grid;
+  background-image: url('https://i.postimg.cc/L55GQ5t7/subscribe.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 682px;
+  width: 100%;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: [row-1] 100px, [row-2] calc((100% - 200px) / 4), [row-3] calc((100% - 200px) / 4), [row-4] calc((100% - 200px) / 4), [row-5] calc((100% - 200px) / 4), [row-6] 100px;
+
+  .artist-image {
+    background-image: url('https://i.postimg.cc/ydvwTcZc/artist.jpg');
+    background-size: cover;
+    background-position: center;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 5;
+  }
+
+  .button {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .new-album {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    justify-self: end;
+  }
+
+  .album-title {
+    position: relative;
+    margin: 30px 0 10px 0;
+  }
+
+  .album-subtitle {
+    color: $color-main;
+    letter-spacing: 4px;
+  }
+
+  .artist-name {
+    color: $color-main;
+    font-weight: $weight-black;
+    letter-spacing: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .artist-surname {
+    color: $color-main;
+    font-weight: $weight-black;
+    letter-spacing: 10px;
+
+    p span {
+      color: $color-button;
+    }
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .subscribe-sign {
+    position: relative;
+  }
+
+  .subscribe-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .artist-image {
+    width: 100%;
+    height: 330px;
+  }
+
+  .new-album {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .album-title {
+    text-align: center;
+    left: auto;
+    font-size: 24px;
+  }
+
+  .album-subtitle {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .artist-name {
+    position: relative;
+    font-size: 24px;
+    text-align: center;
+    top: -300px;
+  }
+
+  .artist-surname {
+    position: relative;
+    font-size: 24px;
+    text-align: center;
+    top: -320px;
+  }
+}
+
+@media (min-width: 769px) {
+  .artist-image {
+    width: 300px;
+  }
+
+  .album-title {
+    left: 325px;
+    font-size: 32px;
+  }
+
+  .album-subtitle {
+    font-size: 32px;
+  }
+
+  .artist-name {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 48px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-end: 3;
+    grid-row-end: 4;
+  }
+
+  .artist-surname {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+    font-size: 48px;
+    left: 110px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-end: 4;
+    grid-row-end: 5;
+  }
+}
