@@ -44,49 +44,59 @@
 
     <!--Home-->
     <script id="template-home-widget" type="text/x-handlebars-template">
-            <div class="songs container"></div>
-            <h2 class="subscribe-sign">Subscribe <span>now</span></h2>
-            <div class="subscribe-box">
-                <div class="artist-image">
-
-                </div>
-                <div class="button subscribe">
-                    <button class="button button-subscribe" href="join-now" type="submit">Join now</button>
-                </div>
-                <div class="new-album">
-                    <h3 class="album-title">New Album</h3>
-                    <p class="album-subtitle">Available only for subscribers</p>
-                </div>
-                <div class="artist-name">
-                    <p>Dean</p>
-                </div>
-                <div class="artist-surname">
-                    <p>Hen<span>son</span></p>
-                </div>
+        <h4 class="page-title">Home</h4>
+        <div class="songs container"></div>
+        <h2 class="subscribe-sign">Subscribe <span>now</span></h2>
+        <div class="subscribe-box">
+            <div class="artist-image"></div>
+            <div class="button subscribe">
+                <button class="button button-subscribe" href="join-now" type="submit">Join now</button>
             </div>
-        </script>
+            <div class="new-album">
+                <h3 class="album-title"><strong>New Album</strong></h3>
+                <p class="album-subtitle"><strong>Available only for subscribers</strong></p>
+            </div>
+            <div class="artist-name">
+                <p>Dean</p>
+            </div>
+            <div class="artist-surname">
+                <p>Hen<span>son</span></p>
+            </div>
+        </div>
+    </script>
 
     <!--Search-->
     <script id="template-search-widget" type="text/x-handlebars-template">
         <h4 class="page-title">Search</h4>
-        <div class="search container"
-                <form class="searchbar">
-                    <div class="searchbar">
-                        <label for="song" class="searchbar-title">Name</label>
-                        <input class="searchbar-input" type="text" name="song">
-                        <button class="button button-search">Search</button>
-                    </div>
-                </form>
-                <div class="page-prompt"></div>
-                <div class="songs container"></div>
-            </div>
+        <div class="search container">
+            <span class="search-error"></span>
+            <form class="searchbar">
+                <div class="searchbar">
+                    <label for="song" class="searchbar-title">Name</label>
+                    <input class="searchbar-input" type="text" name="song" required>
+                    <label for="category" class="searchbar-subtitle">Category</label>
+                    <select class="search-category">
+                        <option value=""></option>
+                        <option value="Powerful">Powerful</option>
+                        <option value="Mystery">Mystery</option>
+                        <option value="Relax">Relax</option>
+                        <option value="Fun">Fun</option>
+                        <option value="Western">Western</option>
+                        <option value="Insomnia">Insomnia</option>
+                    </select>
+                </div>
+            </form>
+            <button class="button button-search" type="submit">Search</button>
+            <div class="page-prompt"></div>
+            <div class="songs container"></div>
+        </div>
     </script>
 
     <!--Discover-->
     <script id="template-discover-widget" type="text/x-handlebars-template">
         <h4 class="page-title">Discover</h4>
         <div class="page-text">Give it a try!</div>
-        <div class="songs container"></div>
+        <div class="songs container discover-wrapper"></div>
     </script>
 
     <!--Song-->
@@ -109,12 +119,13 @@
                 <div class="audio-additionals-categories">
                     Categories:
                     {{#each categories}}
-                        <a href="#{{ this }}">{{ this }}</a>
+                    <a href="#{{ this }}" class="unclickable-link">{{ this }}</a>{{#unless @last}},{{/unless}}
                     {{/each}}
                 </div>
                 <div class="audio-additionals-ranking">
-                    #{{ ranking }} <a href="#ranking">in the ranking</a>
+                    #{{ ranking }} <a href="#ranking" class="unclickable-link">in the ranking</a>
                 </div>
+            </div>
         </div>
     </script>
     <footer class="footer">

@@ -1,25 +1,60 @@
 .page-title {
   text-align: center;
+  margin-bottom: 10px;
 }
 
-.searchbar-title {
+.searchbar {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.searchbar-title, .searchbar-subtitle {
   color: $color-secondary;
   font-weight: $weight-semibold;
   font-size: 24px;
   letter-spacing: 6px;
+  margin-right: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-shadow: 1px 1px 2px $color-background, -1px -1px 2px $color-three;
 }
 
-.searchbar-input {
+.searchbar-input, .search-category {
   margin-right: 15px;
+  width: 200px;
   height: 46px;
   border-radius: 5px;
-  border: none;
+  border-style: ridge;
+  border-color: $color-three;
+  border-width: 3px;
+  background-color: $color-secondary;
+  color: $color-background;
+  text-shadow: 2px 2px 4px $color-three;
+  font-weight: bold; 
 }
 
 .page-prompt {
-  margin-top: 100px;
+  margin-top: 150px;
   color: $color-main;
   font-weight: $weight-semibold;
   font-size: 24px;
   letter-spacing: 6px;
+  text-shadow: $color-three 1px 0 7px;
+}
+
+.search-error {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  width: 35%;
+  top: 0;
+  text-align: center;
+  font-weight: $weight-semibold;
+  color: $color-main;
+  font-size: 20px;
+  text-shadow: 0 0 5px $color-background;
+  box-shadow: 0 0 5px $color-main;
+  background-image: linear-gradient(to right, $color-secondary, $color-three);
 }

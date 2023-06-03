@@ -36,9 +36,11 @@ class Discover {
 
   initActions() {
     const thisDiscover = this;
-    thisDiscover.dom.button.addEventListener('click', function(event){
+    thisDiscover.dom.button.addEventListener('click', function(event) {
       event.preventDefault();
-      thisDiscover.dom.song.innerHTML = '';
+      if (thisDiscover.dom.song.querySelector('.player')) {
+        thisDiscover.dom.song.innerHTML = '';
+      }
       thisDiscover.initWidgets();
     });
   }

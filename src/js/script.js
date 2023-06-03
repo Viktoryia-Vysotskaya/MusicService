@@ -66,7 +66,9 @@ const app = {
         link.getAttribute('href') == '#' + pageId);
     }
     if (thisApp.urlHooks[pageId]) {
-      thisApp.urlHooks[pageId]();
+      if (typeof thisApp.urlHooks[pageId] === 'function') {
+        thisApp.urlHooks[pageId]();
+      }
     }
   },
 
@@ -86,7 +88,6 @@ const app = {
     const thisApp = this;
     const discoverContainer = document.querySelector(select.containerOf.discover);
     thisApp.discover = new Discover(discoverContainer, thisApp.data);
-    thisApp.urlHooks['discover'] = thisApp.discover.initWidgets;
   },
 
   initJoinNow: function(){

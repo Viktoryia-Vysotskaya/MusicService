@@ -2,7 +2,7 @@ import { templates, select } from '../settings.js';
 import AudioPlayer from './AudioPlayer.js';
 
 class Search {
-  constructor(element, data){
+  constructor(element, data) {
     const thisSearch = this;
     thisSearch.authors = data.authors;
     thisSearch.songs = data.songs;
@@ -11,7 +11,7 @@ class Search {
     thisSearch.initWidgets();
   }
 
-  render(element){
+  render(element) {
     const thisSearch = this;
     thisSearch.dom = {};
     thisSearch.dom.wrapper = element;
@@ -21,29 +21,29 @@ class Search {
     thisSearch.dom.input = thisSearch.dom.wrapper.querySelector(select.searchbar.input);
     thisSearch.dom.button = thisSearch.dom.wrapper.querySelector(select.searchbar.button);
     thisSearch.dom.result = thisSearch.dom.wrapper.querySelector(select.search.result);
+    thisSearch.dom.error = thisSearch.dom.wrapper.querySelector('.search-error');
   }
 
-  initWidgets(){
+  initWidgets() {
     const thisSearch = this;
-    if (!thisSearch.resultCount){
-      thisSearch.dom.result.innerHTML = 'Search through all songs...';
+    if (!thisSearch.resultCount) {
+      thisSearch.dom.result.textContent = 'Search through all songs...';
     }
     for (const song of thisSearch.songs) {
       new AudioPlayer(song, thisSearch.authors, thisSearch.dom.songsList);
     }
-
     // eslint-disable-next-line
-     GreenAudioPlayer.init({
-      selector: select.search.player, 
+    GreenAudioPlayer.init({
+      selector: select.search.player,
       stopOthersOnPlay: true,
     });
 
-    thisSearch.dom.button.addEventListener('click', function(event) {
+    thisSearch.dom.button.addEventListener('click', function (event) {
       event.preventDefault();
-      if(thisSearch.resultCount == 1) {
-        thisSearch.dom.result.innerHTML = 'We have found ' + thisSearch.resultCount + ' song...';
+      if (thisSearch.resultCount === 1) {
+        thisSearch.dom.result.textContent = 'We have found ' + thisSearch.resultCount + ' song...';
       } else {
-        thisSearch.dom.result.innerHTML = 'We have found ' + thisSearch.resultCount + ' songs...';
+        thisSearch.dom.result.textContent = 'We have found ' + thisSearch.resultCount + ' songs...';
       }
       thisSearch.dom.songsList.innerHTML = '';
       for (const song of thisSearch.searchResult) {
@@ -51,30 +51,58 @@ class Search {
       }
       // eslint-disable-next-line
       GreenAudioPlayer.init({
-        selector: select.search.player, 
+        selector: select.search.player,
         stopOthersOnPlay: true
       });
     });
   }
 
-  initSearch(){
+  initSearch() {
     const thisSearch = this;
-    thisSearch.dom.button.addEventListener('click', function(event) {
+    thisSearch.dom.button.addEventListener('click', function (event) {
       event.preventDefault();
-      let searchPhrase = thisSearch.dom.input.value;
-      if(searchPhrase !== '')
-        thisSearch.getSearchResult(searchPhrase);
+      const searchPhrase = thisSearch.dom.input.value.trim();
+      const selectedCategory = thisSearch.dom.wrapper.querySelector('.search-category').value;
+      if (searchPhrase === '' && selectedCategory === '') {
+        thisSearch.showError('Please enter a search term or select a category!');
+        thisSearch.clearSongs();
+        return;
+      }
+      thisSearch.getSearchResult(searchPhrase, selectedCategory);
+      thisSearch.clearError();
+      thisSearch.clearSongs(); 
+      for (const song of thisSearch.searchResult) {
+        new AudioPlayer(song, thisSearch.authors, thisSearch.dom.songsList);
+      }
     });
   }
+  
+  clearSongs() {
+    const thisSearch = this;
+    thisSearch.dom.songsList.innerHTML = '';
+  }
 
-  getSearchResult(phrase){
+  showError(message) {
+    const thisSearch = this;
+    thisSearch.dom.error.textContent = message;
+    thisSearch.dom.error.classList.add('show');
+  }
+
+  clearError() {
+    const thisSearch = this;
+    thisSearch.dom.error.textContent = '';
+    thisSearch.dom.error.classList.remove('show');
+  }
+
+  getSearchResult(phrase, category) {
     const thisSearch = this;
     thisSearch.searchResult = [];
     thisSearch.resultCount = 0;
-    for(const song of thisSearch.songs) {
-      if(song.title.toLowerCase().includes(phrase.toLowerCase())){
+    for (const song of thisSearch.songs) {
+      const titleMatches = phrase === '' || song.title.toLowerCase().includes(phrase.toLowerCase());
+      const categoryMatches = category === '' || song.categories.includes(category);
+      if (titleMatches && categoryMatches) {
         thisSearch.searchResult.push(song);
-        console.log(thisSearch.searchResult);
       }
     }
     thisSearch.resultCount = thisSearch.searchResult.length;

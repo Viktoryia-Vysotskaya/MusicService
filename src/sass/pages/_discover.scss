@@ -4,10 +4,16 @@
   font-size: 24px;
   letter-spacing: 6px;
   text-align: center;
+  text-shadow: $color-three 1px 0 7px;
+  padding-top: 30px;
 }
 
 .page-title {
   cursor: pointer;
+  color: $color-three;
+  text-shadow: $color-main 2px 4px;
+  -webkit-text-stroke: 1px $color-background;
+  opacity: 0.8;
 }
 
 footer p {

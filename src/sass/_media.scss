@@ -1,0 +1,177 @@
+@media (max-width: 768px) {
+  .container {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .subscribe-sign {
+    position: relative;
+    font-size: 30px;
+    letter-spacing: 15px;
+    padding-top: 30px;
+    animation: jump 0.8s infinite alternate;
+  }
+
+  @keyframes jump {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-10px);
+    }
+  }
+
+  .subscribe-box {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .subscribe {
+    padding-right: 100px;
+  }
+
+  .artist-image {
+    width: 100%;
+    height: 330px;
+    padding-right: 120px;
+  }
+
+  .new-album {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 20px;
+  }
+
+  .album-title {
+    text-align: left;
+    padding-right: 40px;
+    font-size: 20px;
+  }
+
+  .album-subtitle {
+    text-align: right;
+    padding-left: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+    animation: jump 1s infinite alternate;
+  }
+
+  .artist-name {
+    position: relative;
+    font-size: 24px;
+    text-align: center;
+    top: 300px;
+    left: 100px;
+  }
+
+  .artist-surname {
+    position: relative;
+    font-size: 24px;
+    text-align: center;
+    top: 320px;
+    left: 60px;
+  }
+
+  .song-title {
+    font-size: 16px;
+    letter-spacing: normal;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 46px;
+    letter-spacing: 40px;
+    text-align: center;
+    width: 100%;
+    padding-right: 90px;
+  }
+
+  .navbar {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .green-audio-player {
+    width: 50px;
+  }
+
+  .audio-additionals {
+    width: 150px;
+  }
+
+  .audio-additionals-categories a,
+  .audio-additionals-ranking a {
+    font-size: 14px;
+  }
+
+  .page-prompt {
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  .searchbar input, .searchbar select {
+    width: 40%;
+  }
+
+  .search-category {
+    margin-top: 20px;
+  }
+
+  .searchbar-title, .searchbar-subtitle {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width: 769px) {
+  .artist-image {
+    width: 300px;
+  }
+
+  .new-album {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .album-title {
+    padding-left: 100px;
+    font-size: 32px;
+  }
+
+  .album-subtitle {
+    font-size: 32px;
+    padding-left: 10px;
+  }
+
+  .artist-name {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 48px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-end: 3;
+    grid-row-end: 4;
+  }
+
+  .artist-surname {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: relative;
+    font-size: 48px;
+    left: 110px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-end: 4;
+    grid-row-end: 5;
+  }
+
+  .navbar {
+    width: 33%;
+  }
+}
