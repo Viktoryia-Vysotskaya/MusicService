@@ -2,7 +2,7 @@
 
 🎧 Application for service with music. 
 
-💻 Live demo: https://musicservice-5dff.onrender.com
+💻 Live demo: https://music-service-viktoryiavysots.replit.app
 
 (!) Free hosting so might take a while to load for first time.
 
